@@ -39,7 +39,7 @@ feature 'Creating Cars' do
     visit '/cars/1/edit'
 
     fill_in 'Year', with: '2005'
-    click_button 'Create Car'
+    click_button 'Update Car'
 
     expect(page).to have_content('2005')
   end

@@ -19,7 +19,15 @@ class CarsController < ApplicationController
   end
 
   def update
-
+    respond_to do |format|
+      if @car.update(car_params)
+        format.html { redirect_to @car, notice: 'Car was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @car.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def create
