@@ -19,24 +19,19 @@ feature 'Creating Cars' do
   end
 
   scenario 'shows all cars on home page' do
-    Car.create(make: 'Subaru', model: 'Impreza', year: '2002', price: '3000')
-    Car.create(make: 'Honda', model: 'Civic', year: '1999', price: '1597')
+    car1 = Car.create(make: 'Subaru', model: 'Impreza', year: '2002', price: '3000')
+    car2 = Car.create(make: 'Honda', model: 'Civic', year: '1999', price: '1597')
 
     visit '/'
 
-    expect(page).to have_content('Subaru')
-    expect(page).to have_content('Impreza')
-    expect(page).to have_content('2002')
-    expect(page).to have_content('3000')
-    expect(page).to have_content('Honda')
-    expect(page).to have_content('Civic')
-    expect(page).to have_content('1999')
-    expect(page).to have_content('1597')
+    expect(page).to have_content(car1.make)
+    expect(page).to have_content(car2.make)
+
   end
 
   scenario 'can edit a car' do
-    Car.create(make: 'Subaru', model: 'Impreza', year: '2002', price: '3000')
-    visit '/cars/1/edit'
+    car = Car.create(make: 'Subaru', model: 'Impreza', year: '2002', price: '3000')
+    visit edit_car_path(car)
 
     fill_in 'Year', with: '2005'
     click_button 'Update Car'
