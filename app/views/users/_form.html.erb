@@ -6,7 +6,7 @@
     <h2><%= pluralize(@user.errors.count, 'error') %> prohibited this user from being saved</h2>
     
     <ul>
-      <% @user.errors.full_messages do |msg| %>
+      <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
@@ -30,7 +30,8 @@
     <%= form.label :password %>
     <%= form.text_field :password %>
   </div>
-  <div class='field'>
+
+  <div class="field">
     <%= form.label :password_confirmation %>
     <%= form.text_field :password_confirmation %>
   </div>
@@ -38,6 +39,5 @@
   <div class="actions">
     <%= form.submit 'Signup' %>
   </div>
-
 
 <% end %>

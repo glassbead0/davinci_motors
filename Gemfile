@@ -9,7 +9,7 @@ group :test, :darwin, :development do
 end
 group :test do
   gem 'capybara'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
