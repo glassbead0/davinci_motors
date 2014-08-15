@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
   def destroy
     user = current_user
-    session.delete(:id)
+    session[:user_id] = nil
     redirect_to root_path,
       notice: "See you next time #{user.email}"
   end
