@@ -11,9 +11,10 @@ Rails.application.routes.draw do
     only: [:new, :create],
     path_names: { new: 'signup' }
 
-  get '/login'
-    to: 'sessions#login'
+  get '/login',
+    to: 'sessions#login',
     as: 'login'
+
   post 'login' => 'sessions#create'
 
   delete 'logout' => 'sessions#destroy'
