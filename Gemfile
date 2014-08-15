@@ -12,6 +12,8 @@ group :test do
   gem 'shoulda-matchers'
 end
 
+gem 'will_paginate-bootstrap'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 gem 'bcrypt'

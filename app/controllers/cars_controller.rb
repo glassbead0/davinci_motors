@@ -3,7 +3,7 @@ class CarsController < ApplicationController
 
 
   def index
-    @cars = Car.all
+    @cars = Car.all.paginate( page: params[:page], per_page: 20)
   end
 
   def new
