@@ -35,7 +35,7 @@ class CarsController < ApplicationController
     creation_message = "#{@car.year} #{@car.make} #{@car.model} has been created."
 
     if @car.save
-      redirect_to cars_path, notice: creation_message
+      redirect_to root_path, notice: creation_message
     end
   end
 
