@@ -27,7 +27,7 @@
       <td><%= car.model %></td>
       <td><%= car.make %></td>
       <td><%= car.year %></td>
-      <td>$<%= number_with_delimiter(car.price, delimeter: ',') %></td>
+      <td><%= number_to_currency(car.price) %></td>
       <td><%= link_to 'Show', car %></td>
       <td><%= link_to 'Edit', edit_car_path(car) %></td>
       <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
