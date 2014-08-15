@@ -29,13 +29,13 @@ feature "User Authentication" do
 
     click_link 'Login'
 
-    fill_in 'Email', with: @user.email
+    fill_in 'Email', with: user.email
     fill_in 'Password', with: 'sup3rs3krit'
 
     click_button 'Login'
 
-    expect(page).to have_text("Welcome back #{@user.first_name}")
-    expect(page).to have_text("Signed in as #{@user.email}")
+    expect(page).to have_text("Welcome back #{user.first_name}")
+    expect(page).to have_text("Signed in as #{user.email}")
   end
 
   scenario 'allow a user to log out' do
@@ -56,5 +56,6 @@ feature "User Authentication" do
 
     expect(page).to have_text("See you next time #{@user.email}")
     expect(page).to_not have_text("Welcome back #{@user.first_name}")
+    expect(page).to_not have_text('Signed in as')
   end
 end
