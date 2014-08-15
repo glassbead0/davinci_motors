@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'spec_helper'
 
 
 feature 'Creating Cars' do
@@ -37,5 +38,12 @@ feature 'Creating Cars' do
     click_button 'Update Car'
 
     expect(page).to have_content('2005')
+  end
+
+  scenario 'uses factory girl to create a car' do
+    car = FactoryGirl.create(:car)
+
+    expect(car.price).to be > 0
+    expect(car.price).to be < 1_000_000
   end
 end
