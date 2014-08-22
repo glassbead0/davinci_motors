@@ -1,9 +1,29 @@
-<h2>New User</h2>
+<div class="jumbotron">
+  <div class="row">
 
-<%= render 'form' %>
+    <% unless @user.omniauth? %>
+      <div class="col-xs-6 center-block">
+        <%= image_tag('octocat.png', calss: 'img-responsive', size: '40x40') %>
+        <%= link_to button_tag('Sign up via Github', class: 'btn btn-primary'), '/auth/github' %>
+      </div>
+      <div class="col-xs-4 col-xs-offset-2">
+        <h1>Signup</h1>
+      </div>
+    <% else %>
+      <div class="col-xs-10 col-xs-offset-2 center-block">
+        <h1>Verify Details</h1>
 
-<div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <%= link_to 'Back', root_path, :class => "btn btn-primary" %>
+    <% end %>
+
+    <%= render 'users/form' %>
+
+    <%= link_to root_path, :class => 'btn btn-default col-sm-offset-2' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      Back
+    <% end %>
+
+    </div>
   </div>
 </div>
+
+
