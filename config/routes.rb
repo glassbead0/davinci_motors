@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
   root 'cars#index'
 
   resources :cars
@@ -11,13 +6,11 @@ Rails.application.routes.draw do
     only: [:new, :create],
     path_names: { new: 'signup' }
 
-  get '/login',
-    to: 'sessions#login',
-    as: 'login'
-
+  get '/login' => 'sessions#login', as: 'login'
   post '/login' => 'sessions#create'
 
-  delete '/logout',
-    to: 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy'
+
+  get '/auth/:provider/callback' => 'sessions#oauth'
 
 end
